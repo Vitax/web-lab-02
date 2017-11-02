@@ -1,0 +1,22 @@
+{
+  "name": "WebTechnologies-Lab02",
+  "main": "./src/image_processing.js",
+  "authors": [
+    "vitax <caglar.oezel@gmail.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "raphael": "^2.2.7"
+  }
+}
