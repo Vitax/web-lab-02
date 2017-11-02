@@ -1,10 +1,4 @@
 # Created by https://www.gitignore.io/api/bower
 
 ### Bower ###
-bower_components
-.bower-cache
-.bower-registry
-.bower-tmp
-
-# End of https://www.gitignore.io/api/bower
-.DS_Store
+bower_components/
