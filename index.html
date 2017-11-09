@@ -2,12 +2,19 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript"  src="./src/image_processing.js"></script>
+    <!--<script type="text/javascript" src="./bower_components/"> </script>-->
+    <script type="text/javascript" src="./src/image_processing.js"></script>
 </head>
 
 <body>
-    <canvas id="myCanvas" width="400" height="200"></canvas>
+    <div>
+        <canvas id="myCanvas" width="400" height="200"></canvas>
+    </div>
+    <div>
+        <input type="range" min="-255" max="255" value="0" class="slider" id="brightnessSlider">
+    </div>
 </body>
 
 </html>
