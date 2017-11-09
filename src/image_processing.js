@@ -1,6 +1,5 @@
 $(document).ready(function() {
   let originalImage = [];
-  let median = 0;
   let image = new Image();
   image.src = "./assets/images/lena_std.png";
 
@@ -8,11 +7,13 @@ $(document).ready(function() {
   canvas.width = image.width;
   canvas.height = image.height;
   let context = canvas.getContext("2d");
-  greyScaleImage(image, originalImage, context, median);
-  modifyBrithness(image, originalImage, context, median);
+
+  greyScaleImage(image, originalImage, context);
+  modifyBrithness(image, originalImage, context);
+  resetImage(image, originalImage, context);
 })
 
-function greyScaleImage(image, originalImage, context, median) {
+function greyScaleImage(image, originalImage, context) {
   image.addEventListener("load", function () {
     context.drawImage(image, 0, 0);
 
@@ -36,7 +37,7 @@ function greyScaleImage(image, originalImage, context, median) {
   });
 }
 
-function modifyBrithness(image, originalImage, context, median) {
+function modifyBrithness(image, originalImage, context) {
   
   $(document).on("input change", '#brightnessSlider', function() {
     let valueOfSlider = $(this).val();
@@ -51,5 +52,19 @@ function modifyBrithness(image, originalImage, context, median) {
     }
 
     context.putImageData(imageData, 0, 0);
+  })
+}
+
+function resetImage(image, originalImage, context) {
+  $('#resetImage').click(function () {
+    let imageData = context.getImageData(0,0, image.width, image.height);
+    
+    for(let i = 0; i < originalImage.length; i+= 4) {
+      imageData.data[i] = originalImage[i];
+      imageData.data[i + 1] = originalImage[i];
+      imageData.data[i + 2] = originalImage[i];
+    }
+    context.putImageData(imageData, 0, 0);
+    $('#brightnessSlider').val(0);
   })
 }
